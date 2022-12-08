@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block bg_color %}#121212{% endblock bg_color %}
+
+{% block body %}
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="row">
+    <div class="card">
+      <img src="{% static 'img/logo_unifap.svg' %}" class="card-img-top px-4 py-4" alt="...">
+      <div class="card-body">
+        <h5 class="card-title text-center">Faça Login</h5>
+        <div class="card-body">
+          <form method="POST" action="." class="d-flex flex-column" style="width: 100% ">
+            {% csrf_token %}
+            <label for="username" class="mb-1">Login:</label>
+            <input type="text" id="login" name="login" class="mb-3" required>
+            <label for="pass" class="mb-1">Password:</label>
+            <input type="password" id="pass" name="password" class="mb-3" required>
+            <button type="submit" class="btn btn-primary mt-2" style="width: 100%">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}
